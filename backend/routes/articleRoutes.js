@@ -1,11 +1,17 @@
 const express = require('express');
-const { getArticles, addArticle } = require('../controllers/articleController');
+const { getArticles, addArticle, updateArticle, deleteArticle } = require('../controllers/articleController');
 const router = express.Router();
 
-// Route pour récupérer tous les articles
+// Récupérer tous les articles
 router.get('/', getArticles);
 
-// Route pour ajouter un article
+// Ajouter un nouvel article
 router.post('/', addArticle);
+
+// Mettre à jour un article
+router.put('/:id', updateArticle);
+
+// Supprimer un article
+router.delete('/:id', deleteArticle);
 
 module.exports = router;
