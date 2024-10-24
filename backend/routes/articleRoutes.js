@@ -1,17 +1,18 @@
 const express = require('express');
 const { getArticles, addArticle, updateArticle, deleteArticle } = require('../controllers/articleController');
+const { protect } = require('../middleware/authMiddleware');
 const router = express.Router();
 
 // Récupérer tous les articles
 router.get('/', getArticles);
 
 // Ajouter un nouvel article
-router.post('/', addArticle);
+router.post('/', protect, addArticle);
 
 // Mettre à jour un article
-router.put('/:id', updateArticle);
+router.put('/:id', protect, updateArticle);
 
 // Supprimer un article
-router.delete('/:id', deleteArticle);
+router.delete('/:id', protect, deleteArticle);
 
 module.exports = router;

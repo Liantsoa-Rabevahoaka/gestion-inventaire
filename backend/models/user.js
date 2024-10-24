@@ -30,5 +30,10 @@ userSchema.pre('save', async function (next) {
     next();
 });
 
+// Méthode pour comparer les mots de passe lors de la connexion
+userSchema.methods.matchPassword = async function (enteredPassword) {
+    return await bcrypt.compare(enteredPassword, this.password);
+};
+
 const User = mongoose.model('User', userSchema);
 module.exports = User;
