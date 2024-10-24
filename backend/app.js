@@ -3,12 +3,14 @@ require('dotenv').config(); // Charger les variables d'environnement
 const express = require('express');
 const mongoose = require('mongoose');
 const articleRoutes = require('./routes/articleRoutes');
+const zoneRoutes = require('./routes/zoneRoutes'); // Import des routes zones
 const app = express();
 
 app.use(express.json());
 
 // Utilise les routes des articles
 app.use('/api/articles', articleRoutes);
+app.use('/api/zones', zoneRoutes); // Utilisation des routes zones
 
 // Connexion à MongoDB
 mongoose.connect(process.env.MONGO_URI)
