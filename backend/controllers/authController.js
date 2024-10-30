@@ -49,7 +49,19 @@ const loginUser = async (req, res) => {
     }
 };
 
+// Déconnexion de l'utilisateur
+const logoutUser = async (req, res) => {
+    try {
+        console.log('Utilisateur déconnecté avec succès');
+        res.status(200).json({ message: 'Déconnexion réussie' });
+    } catch (error) {
+        console.error('Erreur lors de la déconnexion:', error);
+        res.status(500).json({ message: 'Erreur lors de la déconnexion' });
+    }
+};
+
 module.exports = {
     registerUser,
-    loginUser
+    loginUser,
+    logoutUser
 };
