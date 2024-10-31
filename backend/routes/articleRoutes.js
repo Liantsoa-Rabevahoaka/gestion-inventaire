@@ -1,18 +1,13 @@
 const express = require('express');
 const { getArticles, addArticle, updateArticle, deleteArticle } = require('../controllers/articleController');
 const { protect } = require('../middleware/authMiddleware');
+const { checkZoneScan } = require('../middleware/zoneScanMiddleware');
 const router = express.Router();
 
-// Récupérer tous les articles
-router.get('/', getArticles);
-
-// Ajouter un nouvel article
-router.post('/', protect, addArticle);
-
-// Mettre à jour un article
-router.put('/:id', protect, updateArticle);
-
-// Supprimer un article
-router.delete('/:id', protect, deleteArticle);
+// Routes CRUD pour les articles (nécessite que la zone soit scannée)
+router.get('/', protect, checkZoneScan, getArticles);
+router.post('/', protect, checkZoneScan, addArticle);
+router.put('/:id', protect, checkZoneScan, updateArticle);
+router.delete('/:id', protect, checkZoneScan, deleteArticle);
 
 module.exports = router;

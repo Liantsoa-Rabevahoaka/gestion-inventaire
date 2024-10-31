@@ -1,6 +1,7 @@
 require('dotenv').config(); // Charger les variables d'environnement
 
 const express = require('express');
+const session = require('express-session');
 const mongoose = require('mongoose');
 const articleRoutes = require('./routes/articleRoutes');
 const zoneRoutes = require('./routes/zoneRoutes'); // Import des routes zones
@@ -9,6 +10,14 @@ const barcodeRoutes = require('./routes/barcodeRoutes'); // Import des routes po
 const app = express();
 
 app.use(express.json());
+
+// Configurer express-session
+app.use(session({
+    secret: process.env.SESSION_SECRET, 
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // Passe à true si tu utilises HTTPS
+}));
 
 // Utilise les routes des articles
 app.use('/api/articles', articleRoutes);
