@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const articleRoutes = require('./routes/articleRoutes');
 const zoneRoutes = require('./routes/zoneRoutes'); // Import des routes zones
 const authRoutes = require('./routes/authRoutes'); // Import des routes d'authentification
+const barcodeRoutes = require('./routes/barcodeRoutes'); // Import des routes pour les codes-barres
 const app = express();
 
 app.use(express.json());
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use('/api/articles', articleRoutes);
 app.use('/api/zones', zoneRoutes); // Utilisation des routes zones
 app.use('/api/auth', authRoutes); // Utilisation des routes d'authentification
+app.use('/api/barcodes', barcodeRoutes); // Routes pour les codes-barres
 
 // Connexion à MongoDB
 mongoose.connect(process.env.MONGO_URI)
