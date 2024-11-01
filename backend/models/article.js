@@ -13,6 +13,15 @@ const articleSchema = new mongoose.Schema({
     subcategory: {
         type: String
     },
+    family: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Family',  // Référence à la famille
+        required: true
+    },
+    subFamily: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'SubFamily'  // Référence à la sous-famille
+    },
     barcode: {
         type: String,
         required: true,
@@ -23,7 +32,7 @@ const articleSchema = new mongoose.Schema({
     },
     location: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Zone',  // Référence à la zone
+        ref: 'Zone',
         required: true
     },
     price: {
