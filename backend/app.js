@@ -9,6 +9,7 @@ const authRoutes = require('./routes/authRoutes'); // Import des routes d'authen
 const barcodeRoutes = require('./routes/barcodeRoutes'); // Import des routes pour les codes-barres
 const familyRoutes = require('./routes/familyRoutes');
 const subFamilyRoutes = require('./routes/subFamilyRoutes');
+const { errorHandler } = require('./middleware/errorMiddleware'); // Import du middleware d'erreurs
 const app = express();
 
 app.use(express.json());
@@ -28,6 +29,9 @@ app.use('/api/auth', authRoutes); // Utilisation des routes d'authentification
 app.use('/api/barcodes', barcodeRoutes); // Routes pour les codes-barres
 app.use('/api/families', familyRoutes);
 app.use('/api/subfamilies', subFamilyRoutes);
+
+// Middleware de gestion des erreurs
+app.use(errorHandler);
 
 // Connexion à MongoDB
 mongoose.connect(process.env.MONGO_URI)
