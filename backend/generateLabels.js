@@ -3,17 +3,17 @@ const fs = require('fs');
 const path = require('path');
 
 //  Taille personnalisée du papier pour deux étiquettes de 80mm x 40mm (modifiable)
-const pageWidth = 80 * 2.83; // 80 mm en pixels
-const pageHeight = 40 * 2.83 * 2; // 80 mm en pixels (2 étiquettes l'une au dessus de l'autre)
-const margin = 5; // Marge autour des étiquettes
+const pageWidth = 80 * 2.83; 
+const pageHeight = 40 * 2.83 * 2; 
+const margin = 5; 
 
 // Dimensions approximatives pour les codes-barres (en pixels)
-const approxBarcodeWidth = pageWidth - 2 * margin; // Utiliser presque toute la largeur
-const approxBarcodeHeight = (pageHeight / 2) * 0.8; // Utiliser 80% de la demi-page en hauteur
+const approxBarcodeWidth = pageWidth - 2 * margin; 
+const approxBarcodeHeight = (pageHeight / 2) * 0.8; 
 
 // Calculer la position Y approximative pour centrer verticalement
-const approxY1 = margin + ((pageHeight / 2) - approxBarcodeHeight) / 2; // Centrer le code-barres du haut
-const approxY2 = (pageHeight / 2) + margin + ((pageHeight / 2) - approxBarcodeHeight) / 2; // Centrer le code-barres du bas
+const approxY1 = margin + ((pageHeight / 2) - approxBarcodeHeight) / 2; 
+const approxY2 = (pageHeight / 2) + margin + ((pageHeight / 2) - approxBarcodeHeight) / 2; 
 
 // Création du document PDF avec des pages contenant deux étiquettes
 const outputPath = path.join(__dirname, 'labels.pdf');
