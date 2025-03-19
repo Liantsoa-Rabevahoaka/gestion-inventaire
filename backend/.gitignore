@@ -5,6 +5,8 @@
 /.pnp
 /build
 .pnp.js
+/data
+/barcodes
 
 # testing
 /coverage
