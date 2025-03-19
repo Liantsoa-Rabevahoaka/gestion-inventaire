@@ -7,7 +7,7 @@
 .pnp.js
 /data
 /barcodes
-
+.pdf
 # testing
 /coverage
 
