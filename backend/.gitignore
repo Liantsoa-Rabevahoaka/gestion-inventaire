@@ -5,9 +5,11 @@
 /.pnp
 /build
 .pnp.js
+
 /data
 /barcodes
-.pdf
+/labels.pdf
+
 # testing
 /coverage
 
