@@ -25,24 +25,18 @@ const Sidebar = () => {
                 <p className="title">LISTS</p>
                 
                 <li>
-                    <StoreOutlinedIcon className="icon"/>
-                    <span>Zones</span>
-                </li>
-                <li>
                     <CreditCardOutlinedIcon className="icon"/>
                     <span>Articles</span>
+                </li>
+                <li>
+                    <StoreOutlinedIcon className="icon"/>
+                    <span>Zones</span>
                 </li>
                 <li>
                     <LocalShippingOutlinedIcon className="icon"/>
                     <span>Delivery</span>
                 </li>
                 
-                {/* <p className="title">USER</p>
-
-                <li>
-                    <ExitToAppOutlinedIcon className="icon"/>
-                    <span>Logout </span>
-                </li> */}
             </ul>
         </div>
     </div>
