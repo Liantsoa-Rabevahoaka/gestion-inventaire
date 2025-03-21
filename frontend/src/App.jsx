@@ -13,13 +13,12 @@ function App() {
         <Routes>
           <Route path="/">
             <Route index element={<Home/>} />
-            <Route path="login" element={<Login/>}/>
             <Route path="articles">
               <Route index element={<List />}/>
               <Route path=":userId" element={<Single/>}/>
               <Route
                 path="new"
-                element={<New inputs={articleInputs} title="Add New User" />}
+                element={<New inputs={articleInputs} title="Add New Articles" />}
               />            
               </Route>             
             <Route path="zones">
